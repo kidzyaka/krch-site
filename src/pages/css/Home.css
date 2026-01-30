@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home-container {
+  background-color: #121212;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Цепочка по краям */
+.chain {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(
+    to right,
+    #904EB1 0%,
+    #904EB1 50%,
+    #121212 50%
+  );
+  background-size: 40px 20px;
+  z-index: 0;
+}
+
+.chain-top {
+  top: 0;
+}
+
+.chain-bottom {
+  bottom: 0;
+}
+
+.content-container {
+  position: relative;
+  text-align: center;
+  max-width: 600px;
+  padding: 2rem;
+  z-index: 1;
+}
+
+.krch h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #904EB1;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.krch p {
+  color: #E0E0E0;
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+.input-container {
+  background-color: #262626;
+  padding: 1.8rem;
+  border-radius: 12px;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.input-container input {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: #1a1a1a;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  outline: none;
+}
+
+.input-container input::placeholder {
+  color: #666;
+  opacity: 0.8;
+}
+
+.input-container button {
+  background: linear-gradient(to right, #904EB1, #7a3a9c);
+  color: white;
+  border: none;
+  padding: 0.9rem 1.8rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 100%;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.input-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(144, 78, 177, 0.4);
+}
