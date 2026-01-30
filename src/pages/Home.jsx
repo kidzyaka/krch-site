@@ -1,29 +1,33 @@
 import "./css/Home.css";
+import Chain from "../assets/chain.svg"; // Иконка левой цепи
 
 const Home = () => {
   return (
-    <div className="home-container">
-      {/* Цепочки по краям */}
-      <div className="chain chain-top"></div>
-      <div className="chain chain-bottom"></div>
-
-      {/* Основной контент */}
-      <div className="content-container">
-        <div className="krch">
-          <h1>KRCH.IO</h1>
-          <p>Make links grate again</p>
+    <div className="krch">
+      <div className="krch-content">
+        <h1>KRCH.IO</h1>
+        <p>Make links grate again</p>
+        
+        {/* Блок с пошаговой инструкцией */}
+        <div className="steps">
+          
+          {/* Поле ввода с цепями по бокам */}
+          <div className="input-with-chains">
+            <img src={Chain} alt="left chain" className="chain-left" />
+            <div className="input-container">
+              <input 
+                type="url" 
+                placeholder="Тут могла быть ваша длинная, угрюмая и скучная ссылка..."
+              />
+            </div>
+            <img src={Chain} alt="right chain" className="chain-right" />
+          </div>
+          
         </div>
-
-        {/* Форма */}
-        <div className="input-container">
-          <input 
-            type="text" 
-            placeholder="Тут могла быть ваша длинная ссылка..."
-          />
-          <button>Generate</button>
-        </div>
+        
+        <button className="krch-link">Коротко!</button>
       </div>
-    </div>
+    </div>  
   );
 };
 

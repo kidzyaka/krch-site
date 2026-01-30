@@ -1,107 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.home-container {
-  background-color: #121212;
-  color: #fff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  min-height: 100vh;
+body {
+  background-color: #262626;
+  font-family: "Unbounded", sans-serif; /* Добавляем глобально */
+}
+
+.krch {
+  height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  position: relative;
+  justify-content: center;
+  padding: 20px; /* Добавляем отступы по краям */
 }
 
-/* Цепочка по краям */
-.chain {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 20px;
-  background: linear-gradient(
-    to right,
-    #904EB1 0%,
-    #904EB1 50%,
-    #121212 50%
-  );
-  background-size: 40px 20px;
-  z-index: 0;
-}
-
-.chain-top {
-  top: 0;
-}
-
-.chain-bottom {
-  bottom: 0;
-}
-
-.content-container {
-  position: relative;
+.krch-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  max-width: 600px;
-  padding: 2rem;
-  z-index: 1;
+  width: 100%;
 }
 
 .krch h1 {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: #904EB1;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-size: 128px;
+  font-weight: 400;
+  margin-bottom: 10px; /* Уменьшаем отступ */
+  
+  /* Градиент */
+  background: linear-gradient(to bottom, #DBB9E9 0%, #904EB1 50%, #2D0336 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  
+  /* Убираем background-color: aqua; - он перекрывает градиент */
 }
 
 .krch p {
-  color: #E0E0E0;
-  font-size: 1.3rem;
-  margin-bottom: 2.5rem;
-  font-weight: 300;
+  color: #8A8A8A;
+  font-size: 24px; /* Уменьшаем размер */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 30px; /* Отступ снизу перед инпутом */
+  font-weight: 300; /* Более тонкий шрифт */
 }
 
-.input-container {
-  background-color: #262626;
-  padding: 1.8rem;
-  border-radius: 12px;
-  margin-bottom: 2.5rem;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+.linking {
+  display: block;
+  background-color: aqua;
 }
 
-.input-container input {
-  width: 100%;
-  padding: 0.9rem;
-  background-color: #1a1a1a;
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 1.1rem;
-  margin-bottom: 1.2rem;
-  outline: none;
-}
-
-.input-container input::placeholder {
-  color: #666;
-  opacity: 0.8;
-}
-
-.input-container button {
-  background: linear-gradient(to right, #904EB1, #7a3a9c);
+.krch input {
+  margin-top: 15px;
+  border-radius: 1000px;
+  width: 780px;
+  text-align: center;
+  height: 60px;
+  border: 2px solid #904EB1; /* Добавляем рамку */
+  background: linear-gradient(#232323 0%, #171717 100%); /* Полупрозрачный фон */
   color: white;
-  border: none;
-  padding: 0.9rem 1.8rem;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  width: 100%;
-  font-weight: 600;
+  font-size: 18px;
+  font-family: "Unbounded", sans-serif;
+  padding: 0 30px;
+  outline: none;
   transition: all 0.3s ease;
 }
 
-.input-container button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(144, 78, 177, 0.4);
+.krch input::placeholder {
+  font-size: 18px;
+  text-align: center;
+  color: #8A8A8A;
+  text-align: center;
+}
+
+.krch input:focus {
+  border-color: #DBB9E9; /* Меняем цвет рамки при фокусе */
+  box-shadow: 0 0 15px rgba(219, 185, 233, 0.3); /* Добавляем свечение */
+}
+
+.krch input:hover {
+  border-color: #B17DC9; /* Меняем цвет рамки при наведении */
+}
+
+.krch-link {
+  border-radius: 12px;
+  margin-top: 30px;
+  padding: 15px 40px;
+  border: none;
+  background-color: #D2A9E6;
+  color: #fff;
+  font-size: 30px;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+  .krch h1 {
+    font-size: 96px;
+  }
+  .krch p {
+    font-size: 20px;
+  }
+  .krch input {
+    width: 600px;
+    max-width: 90vw; /* Максимальная ширина 90% от экрана */
+  }
+}
+
+@media (max-width: 768px) {
+  .krch h1 {
+    font-size: 64px;
+  }
+  .krch p {
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+  }
+  .krch input {
+    width: 90vw;
+    height: 50px;
+    padding: 0 20px;
+  }
+  .krch input::placeholder {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .krch h1 {
+    font-size: 48px;
+  }
+  .krch p {
+    font-size: 14px;
+  }
+  .krch input {
+    height: 45px;
+  }
 }
