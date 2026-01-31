@@ -8,86 +8,106 @@
 
 body {
   background-color: #262626;
-  font-family: "Unbounded", sans-serif; /* Добавляем глобально */
+  font-family: "Unbounded", sans-serif;
 }
+
+/* ================= ОСНОВНОЙ КОНТЕЙНЕР ================= */
 
 .krch {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px; /* Добавляем отступы по краям */
+  padding: 20px;
 }
 
 .krch-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
   width: 100%;
 }
 
+/* ================= ЗАГОЛОВОК ================= */
+
 .krch h1 {
   font-size: 128px;
   font-weight: 400;
-  margin-bottom: 10px; /* Уменьшаем отступ */
-  
-  /* Градиент */
-  background: linear-gradient(to bottom, #DBB9E9 0%, #904EB1 50%, #2D0336 100%);
+  margin-bottom: 10px;
+
+  background: linear-gradient(
+    to bottom,
+    #DBB9E9 0%,
+    #904EB1 50%,
+    #2D0336 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  
-  /* Убираем background-color: aqua; - он перекрывает градиент */
 }
 
 .krch p {
   color: #8A8A8A;
-  font-size: 24px; /* Уменьшаем размер */
+  font-size: 24px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 30px; /* Отступ снизу перед инпутом */
-  font-weight: 300; /* Более тонкий шрифт */
+  margin-bottom: 30px;
+  font-weight: 300;
 }
 
-.linking {
-  display: block;
-  background-color: aqua;
+/* ================= ИНПУТ С ЦЕПЯМИ ================= */
+
+.input-with-chains {
+  position: relative;
+  display: flex;
+  align-items: center;   /* центр по вертикали */
+  justify-content: center;
+  width: 100%;
+  height: 100px;         /* фиксируем высоту для точного центрирования */
 }
+
+/* Цепи */
+
+
+
+/* Инпут */
 
 .krch input {
-  margin-top: 15px;
+  position: relative;
+  z-index: 2;            /* инпут поверх цепей */
   border-radius: 1000px;
   width: 780px;
-  text-align: center;
+  max-width: 90vw;
   height: 60px;
-  border: 2px solid #904EB1; /* Добавляем рамку */
-  background: linear-gradient(#232323 0%, #171717 100%); /* Полупрозрачный фон */
-  color: white;
+  border: 2px solid #904EB1;
+  background: linear-gradient(#232323 0%, #171717 100%);
+  color: #ffffff;
   font-size: 18px;
   font-family: "Unbounded", sans-serif;
   padding: 0 30px;
   outline: none;
   transition: all 0.3s ease;
+  text-align: center;
 }
 
 .krch input::placeholder {
   font-size: 18px;
-  text-align: center;
   color: #8A8A8A;
   text-align: center;
 }
 
-.krch input:focus {
-  border-color: #DBB9E9; /* Меняем цвет рамки при фокусе */
-  box-shadow: 0 0 15px rgba(219, 185, 233, 0.3); /* Добавляем свечение */
+.krch input:hover {
+  border-color: #B17DC9;
 }
 
-.krch input:hover {
-  border-color: #B17DC9; /* Меняем цвет рамки при наведении */
+.krch input:focus {
+  border-color: #DBB9E9;
+  box-shadow: 0 0 15px rgba(219, 185, 233, 0.3);
 }
+
+/* ================= КНОПКА ================= */
 
 .krch-link {
   border-radius: 12px;
@@ -95,21 +115,30 @@ body {
   padding: 15px 40px;
   border: none;
   background-color: #D2A9E6;
-  color: #fff;
+  color: #ffffff;
   font-size: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Адаптивность */
+.krch-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(210, 169, 230, 0.4);
+}
+
+/* ================= АДАПТИВ ================= */
+
 @media (max-width: 1200px) {
   .krch h1 {
     font-size: 96px;
   }
+
   .krch p {
     font-size: 20px;
   }
+
   .krch input {
     width: 600px;
-    max-width: 90vw; /* Максимальная ширина 90% от экрана */
   }
 }
 
@@ -117,16 +146,26 @@ body {
   .krch h1 {
     font-size: 64px;
   }
+
   .krch p {
     font-size: 16px;
     letter-spacing: 1px;
-    margin-bottom: 30px;
   }
+
+  .input-with-chains {
+    gap: 12px;
+  }
+
+  .chain-left,
+  .chain-right {
+    width: 40px;
+  }
+
   .krch input {
-    width: 90vw;
     height: 50px;
     padding: 0 20px;
   }
+
   .krch input::placeholder {
     font-size: 14px;
   }
@@ -136,10 +175,18 @@ body {
   .krch h1 {
     font-size: 48px;
   }
+
   .krch p {
     font-size: 14px;
   }
+
+  .chain-left,
+  .chain-right {
+    display: none; /* скрываем цепи на очень маленьких экранах */
+  }
+
   .krch input {
     height: 45px;
+    width: 100%;
   }
 }

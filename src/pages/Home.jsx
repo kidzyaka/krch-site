@@ -25,7 +25,7 @@ const Home = () => {
           
         </div>
         
-        <button className="krch-link">Коротко!</button>
+        <button className="krch-link">Короче!</button>
       </div>
     </div>  
   );
