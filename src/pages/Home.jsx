@@ -8,7 +8,7 @@ const Home = () => {
     <div className="krch">
       <div className="krch-content">
         <h1 className="logo">KRCH.IO</h1>
-        <p>Make links grate again</p>
+        <p className="desc">Make links grate again</p>
         
         {/* Блок с пошаговой инструкцией */}
         <div className="steps">

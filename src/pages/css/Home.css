@@ -14,14 +14,15 @@ body {
 /* ================= ОСНОВНОЙ КОНТЕЙНЕР ================= */
 
 .krch {
-
-  min-height: 100vh;          /* вместо height */
+  /* background-color: aqua; */
+  height: 100vh;          /* вместо height */
   display: flex;
   flex-direction: column;     /* колонка */
 }
 
 .krch-content {
-  flex: 1;
+  height: 100vh;
+  flex: 1 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,7 +49,7 @@ body {
   color: transparent;
 }
 
-.krch p {
+.krch .desc {
   color: #8A8A8A;
   font-size: 24px;
   letter-spacing: 2px;
@@ -76,26 +77,27 @@ body {
 .input-with-chains {
   position: relative;
   width: 100%;
-  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px; /* высота самого инпута */
 }
 
 .chain-bg {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* ключ: занимает всю высоту родителя */
   background-image: url("../../assets/chain.svg");
   background-repeat: repeat-x;
   background-size: auto 100%;
   opacity: 0.6;
+  z-index: 1;
 }
 
-/* Инпут */
-
 .input-link input {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
+  position: relative; /* теперь не absolute */
   z-index: 2;
   border-radius: 1000px;
   width: 780px;
