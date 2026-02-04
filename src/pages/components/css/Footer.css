@@ -9,13 +9,51 @@
     padding: 30px 0;
 }
 
-.information p {
+.footer p {
     width: 90%;
+    font-size: 20px;
     margin-left: 5%;
     color: #B0B0B0;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .information .information-center {
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.links {
+    /* background-color: aqua; */
+    width: 90%;
+    margin-left: 5%;
+}
+
+.links a,
+.gh-link {
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 15px 30px;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.links .patreon-link {
+    background-color: #B15E4E;
+}
+
+.links .boosty-link {
+    background-color: #B1774E;
+}
+
+.links .coffee-link {
+    background-color: #B19D4E;
+}
+
+.gh-link {
+    background-color: aqua;
+    background-color: #232323;
+    margin-left: calc(5% + 15px);
 }
