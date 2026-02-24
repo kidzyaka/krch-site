@@ -1,11 +1,12 @@
 import "./css/Home.css";
-import Chain from "../assets/chain.svg"; // Иконка левой цепи
 
+import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 const Home = () => {
   return (
     <div className="krch">
+      <Header />
       <div className="krch-content">
         <h1 className="logo">KRCH.IO</h1>
         <p className="desc">Make links grate again</p>

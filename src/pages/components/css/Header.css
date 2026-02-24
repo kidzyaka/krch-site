@@ -1,0 +1,19 @@
+header {
+    height: 60px;
+}
+
+header .right {
+    float: right;
+}
+
+header .right ul li {
+    display: inline-block;
+    margin: 5px 15px;
+    padding: 5px 15px;
+
+}
+
+header .right ul li a {
+    text-decoration: none;
+    font-size: 18px;
+}
