@@ -1,59 +1,86 @@
 .footer {
-    background-color: #3B2E41;
+  position: relative;
+  background: #3B2E41;
+  padding: 80px 0;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.8s ease;
 }
 
-.footer h1 {
-    color: #fff;
-    font-size: 30px;
-    text-align: center;
-    padding: 30px 0;
+/* когда появляется */
+.footer-visible {
+  transform: translateY(0);
+  opacity: 1;
 }
 
-.footer p {
-    width: 90%;
-    font-size: 20px;
-    margin-left: 5%;
-    color: #B0B0B0;
-    margin-top: 30px;
-    margin-bottom: 30px;
+.footer-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
-.information .information-center {
-    margin-top: 30px;
-    margin-bottom: 30px;
+.footer h2 {
+  text-align: center;
+  font-size: 32px;
+  color: #ffffff;
 }
 
-.links {
-    /* background-color: aqua; */
-    width: 90%;
-    margin-left: 5%;
+.footer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.links a,
-.gh-link {
-    text-decoration: none;
-    margin: 0 15px;
-    padding: 15px 30px;
-    border-radius: 12px;
-    color: #fff;
+.footer-text p {
+  color: #B0B0B0;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* ===== КНОПКИ ===== */
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.footer-links a {
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.footer-links a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.patreon { background: #B15E4E; }
+.boosty  { background: #B1774E; }
+.coffee  { background: #B19D4E; }
+.github  { background: #232323; }
+
+/* ===== АДАПТИВ ===== */
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 60px 0;
+  }
+
+  .footer h2 {
+    font-size: 24px;
+  }
+
+  .footer-text p {
     font-size: 16px;
-    font-weight: 600;
-}
-
-.links .patreon-link {
-    background-color: #B15E4E;
-}
-
-.links .boosty-link {
-    background-color: #B1774E;
-}
-
-.links .coffee-link {
-    background-color: #B19D4E;
-}
-
-.gh-link {
-    background-color: aqua;
-    background-color: #232323;
-    margin-left: calc(5% + 15px);
+  }
 }

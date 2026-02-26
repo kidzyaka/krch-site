@@ -1,0 +1,116 @@
+/* ================= ОСНОВА ================= */
+
+.about-page {
+  background-color: #262626;
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= HERO ================= */
+
+.about-hero {
+  text-align: center;
+  padding: 100px 20px 60px 20px;
+}
+
+.about-title {
+  font-size: 64px;
+  font-weight: 400;
+  margin-bottom: 20px;
+
+  background: linear-gradient(
+    to bottom,
+    #DBB9E9 0%,
+    #904EB1 50%,
+    #2D0336 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-subtitle {
+  color: #8A8A8A;
+  font-size: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ================= ОПИСАНИЕ ================= */
+
+.about-content {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto 100px auto;
+  flex: 1;
+}
+
+.about-description {
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.about-description p {
+  color: #B0B0B0;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* ================= ПРЕИМУЩЕСТВА ================= */
+
+.advantages-title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+}
+
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.adv-card {
+  background: linear-gradient(145deg, #2e2e2e, #1f1f1f);
+  border: 1px solid #3f3f3f;
+  border-radius: 20px;
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.adv-card h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.adv-card p {
+  font-size: 16px;
+  color: #A8A8A8;
+  line-height: 1.6;
+}
+
+.adv-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(144, 78, 177, 0.25);
+  border-color: #904EB1;
+}
+
+/* ================= АДАПТИВ ================= */
+
+@media (max-width: 768px) {
+  .about-title {
+    font-size: 42px;
+  }
+
+  .about-subtitle {
+    font-size: 16px;
+  }
+
+  .advantages-title {
+    font-size: 28px;
+  }
+}

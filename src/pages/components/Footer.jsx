@@ -1,21 +1,56 @@
+import { useEffect, useRef } from "react";
 import "./css/Footer.css";
 
 const Footer = () => {
+  const footerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          footerRef.current.classList.add("footer-visible");
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (footerRef.current) {
+      observer.observe(footerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <footer className="footer">
-        <h1>Что такое krch?</h1>
-        <div className="information">
-          <p>В наше время ссылки стали слишком огромными, они содержат в себе токены авторизации, время, адреса, ID и еще кучу данных, это позволяет сервисам более удобно передавать данные в интернете, но это превращает ссылки, изначальная цель котрых — удобная навигация в интернете, в огромные массивы данных в вашей адресной строке, ими не удобно делиться, их неудобно хранить и выглядит это чертовски страшно! Для этого и появились сервисы-сократители, такие как krch, что бы сделать навигацию по ссылкам более лакончиными.</p>
-          <p className="information-center">Принцип работы любого сократителя ссылок основан на принципе перенаправления, когда сократитель выдает вам короткую ссылку, он настраивает перенаправление с короткой ссылки на оригинальную. Когда вы открываете короткую ссылку, сервис-сократитель сообщает вашему браузеру о перенаправлении на оригинальную ссылку при помощи стандартного кода HTTP.</p>
-          <p>Большая часть современных сервисов-сократителей содержат огромный излишек функционала для обычного пользователя и требуют регистрации. krch ориентируется на исключительно необходимый функционал, а так же максимальную приватность, сервис не собирает и не хранит никаких личных данных, все записи о перенаправлении содержат лишь время создания перенаправления.</p>
+    <footer className="footer" ref={footerRef}>
+      <div className="footer-container">
+        <h2>Что такое KRCH?</h2>
+
+        <div className="footer-text">
+          <p>
+            Современные ссылки стали перегруженными: токены, параметры,
+            идентификаторы. Это удобно для сервисов, но неудобно для людей.
+            KRCH делает ссылки короткими и лаконичными.
+          </p>
+
+          <p>
+            Принцип работы основан на HTTP-перенаправлении: короткая ссылка
+            содержит запись, которая ведёт на оригинальный адрес.
+          </p>
+
+          <p>
+            Сервис ориентирован на минимализм и приватность — без регистрации
+            и без хранения личных данных.
+          </p>
         </div>
-        <div className="links">
-          <a href="" className="patreon-link">Patreon</a>
-          <a href="" className="boosty-link">Boosty</a>
-          <a href="" className="coffee-link">Buy me a coffee</a>
+
+        <div className="footer-links">
+          <a href="#" className="patreon">Patreon</a>
+          <a href="#" className="boosty">Boosty</a>
+          <a href="#" className="coffee">Buy me a coffee</a>
+          <a href="https://github.com/kidzyaka/krch-site" target="_blank" className="github">GitHub</a>
         </div>
-        <p>Если вы желаете предложить изменения или улучшения, вы можете сделать это на GitHub:</p>
-        <a href="" className="gh-link">GitHub</a>
+      </div>
     </footer>
   );
 };
