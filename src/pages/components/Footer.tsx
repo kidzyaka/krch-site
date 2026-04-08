@@ -2,12 +2,13 @@ import { useEffect, useRef } from "react";
 import "./css/Footer.css";
 
 const Footer = () => {
-  const footerRef = useRef(null);
+  // useRef с типом HTMLElement | null
+  const footerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && footerRef.current) {
           footerRef.current.classList.add("footer-visible");
         }
       },
@@ -18,7 +19,9 @@ const Footer = () => {
       observer.observe(footerRef.current);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   return (
@@ -48,7 +51,7 @@ const Footer = () => {
           <a href="#" className="patreon">Patreon</a>
           <a href="#" className="boosty">Boosty</a>
           <a href="#" className="coffee">Buy me a coffee</a>
-          <a href="https://github.com/kidzyaka/krch-site" target="_blank" className="github">GitHub</a>
+          <a href="https://github.com/kidzyaka/krch-site" target="_blank" rel="noopener noreferrer" className="github">GitHub</a>
         </div>
       </div>
     </footer>
