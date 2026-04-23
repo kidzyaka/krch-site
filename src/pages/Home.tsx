@@ -1,41 +1,86 @@
 import "./css/Home.css";
+import { useState } from "react";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 const Home = () => {
+  const [url, setUrl] = useState("");
+  const [shortUrl, setShortUrl] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleShorten = async () => {
+    if (!url.trim()) return;
+
+    setLoading(true);
+    setError("");
+    setShortUrl("");
+
+    try {
+      const res = await fetch("http://localhost:8081/api/links", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(url),
+      });
+
+      if (!res.ok) {
+        throw new Error("Request failed");
+      }
+
+      const data = await res.text();
+      setShortUrl(data);
+    } catch (e) {
+      setError("Ошибка при сокращении ссылки");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="krch">
       <Header />
+
       <div className="krch-content">
         <h1 className="logo">KRCH.IO</h1>
         <p className="desc">Make links grate again</p>
-        
-        {/* Блок с пошаговой инструкцией */}
+
         <div className="steps">
-          
-          {/* Поле ввода с цепями по бокам */}
-          {/* <div className="input-with-chains">
-            <div className="input-container">
-            <input 
-            type="url" 
-            placeholder="Тут могла быть ваша длинная, угрюмая и скучная ссылка..."
-            />
-            </div>
-            <img src={Chain} alt="right chain" className="chain-right" />
-            </div> */}
           <div className="input-with-chains">
             <div className="chain-bg" />
+
             <div className="input-link">
-              <input type="text" />
+              <input
+                type="text"
+                value={url}
+                placeholder="Вставь длинную ссылку..."
+                onChange={(e) => setUrl(e.target.value)}
+              />
             </div>
           </div>
         </div>
-        
-        <button className="krch-link">Короче!</button>
+
+        <button className="krch-link" onClick={handleShorten} disabled={loading}>
+          {loading ? "..." : "Короче!"}
+        </button>
+
+        {shortUrl && (
+          <p style={{ marginTop: 20 }}>
+            Короткая ссылка: <a href={shortUrl} style={{ color: "white" }}>{shortUrl}</a>
+          </p>
+        )}
+
+        {error && (
+          <p style={{ marginTop: 20, color: "red" }}>
+            {error}
+          </p>
+        )}
       </div>
+
       <Footer />
-    </div>  
+    </div>
   );
 };
 
