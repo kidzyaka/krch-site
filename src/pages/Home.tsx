@@ -30,8 +30,12 @@ const Home = () => {
         throw new Error("Request failed");
       }
 
-      const data = await res.text();
-      setShortUrl(data);
+      const data = await res.json();
+
+      const finalUrl =
+        data.shortUrl ?? `${data.shortCode}`;
+
+      setShortUrl(finalUrl);
     } catch (e) {
       setError("Ошибка при сокращении ссылки");
     } finally {
