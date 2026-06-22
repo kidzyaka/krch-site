@@ -59,7 +59,7 @@ const Home = () => {
               <input
                 type="text"
                 value={url}
-                placeholder="Вставь длинную ссылку..."
+                placeholder="Вставь ссылку https://..."
                 onChange={(e) => setUrl(e.target.value)}
               />
             </div>
